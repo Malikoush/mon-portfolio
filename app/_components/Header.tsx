@@ -4,6 +4,8 @@ import { Githubicon } from "../icons/Githubicon"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { LinkedInicon } from "../icons/LinkedInicon"
+import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@radix-ui/react-navigation-menu"
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 
 export const Header = () => {
@@ -32,7 +34,37 @@ export const Header = () => {
         </ul>
           
         </Section>
-
+        <Section className="flex items-baseline">
+        <h1 className="text-xl font-bold texte-primary">Martin Ouedraogo</h1>
+        <div className="flex-1"/>
+        <NavigationMenu >
+        <NavigationMenuList className="flex inline-flex">
+ 
+        <NavigationMenuItem >
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/docs" legacyBehavior passHref>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+              Documentation
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+        
+        </NavigationMenuList>
+        </NavigationMenu>
+        </Section>
        </header>
     )
 }

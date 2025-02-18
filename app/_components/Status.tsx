@@ -1,7 +1,10 @@
+
 import { Card } from "@/components/ui/card"
 import { Section } from "./Section"
-import {ChevronRight, Code, LucideIcon, Notebook, Parentheses} from "lucide-react";
-import Link from 'next/link';
+import { ChevronRight, Code, Notebook, Parentheses} from "lucide-react";
+import { SideProject, SideProjectProps } from "./SideProject";
+import { ContactCard } from "./ContactCard";
+import { WorkProject,WorkProps } from "./WorkProject";
 
 export const Status = () => {
 
@@ -14,10 +17,7 @@ export const Status = () => {
                 {SIDE_PROJECTS.map((project,index)=>(
                     <SideProject 
                     key={index}
-                     Logo={project.Logo} 
-                     title={project.title} 
-                     description={project.description}
-                     url={project.url}                   
+                    {...project}                 
                     />
                 )
                 )}
@@ -26,10 +26,30 @@ export const Status = () => {
             </div>
             <div className="flex-[2] w-full flex flex-col gap-4 ">
                 <Card className="w-full p-4 flex-1">
-                Work
+                <p className="text-lg text-muted-foreground">Expériences</p>
+                <div className="flex flex-col gap-4">
+                {WORK.map((work,index)=>(
+                    <WorkProject 
+                    key={index}
+                     {...work}                  
+                    />
+                )
+                )}
+            </div>
                 </Card>
-                <Card className="w-full p-4 flex-1">
-                Contac me
+                <Card className="w-full p-4 flex-1 flex flex-col gap-2">
+                
+                    <p className="text-lg text-muted-foreground">Contact</p>
+      
+              
+                <ContactCard  image="https://img.freepik.com/photos-premium/fond-carre-rouge-uni-espace-pour-votre-image-votre-texte_7954-37579.jpg"
+                mediumImage="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqarWhAjA3PjIx932qC3xziJiMJlaWphKNouCYT3N505zc2ZrXZ_OJAoOkxaC2D-R5fBg&usqp=CAU" 
+                name="toto"
+                url="https://www.imaginarycloud.com/blog/tech-stack-software-development"
+                description="toto"/>
+                
+                
+               
                 </Card>
             </div>
 
@@ -38,7 +58,7 @@ export const Status = () => {
     )
 };
 
-const SIDE_PROJECTS = [
+const SIDE_PROJECTS: SideProjectProps[] = [
     {
         Logo: Code,
         title: "logo",
@@ -63,28 +83,29 @@ const SIDE_PROJECTS = [
         description: "description",
         url: "https://products.aspose.app/words/fr/viewer/svg"
     },
+ 
 ]
 
 
 
-type SideProjectProps = {
-    Logo: LucideIcon;
-    title: string;
-    description: string;
-    url : string
-};
 
-const SideProject = (props: SideProjectProps) => {
-    return(
-        <Link href={props.url} className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded">
-            
-            <span className="bg-accent text-accent-foreground p-3 rounded-sm">
-            <props.Logo />
-            </span>
-            <div>
-            <p className="text-lg font-semibold">{props.title}</p>
-            <p className="text-lg text-muted-foreground">{props.description} </p>
-            </div>
-        </Link>
-    )
-}
+
+const WORK: WorkProps[] = [
+    {
+        Image: "https://img.freepik.com/photos-premium/fond-carre-rouge-uni-espace-pour-votre-image-votre-texte_7954-37579.jpg",
+        title: "logo",
+        role: "description",
+        date: "2022 - Present",
+        url: "https://products.aspose.app/words/fr/viewer/svg"
+    },
+    {
+        Image: "https://img.freepik.com/photos-premium/fond-carre-rouge-uni-espace-pour-votre-image-votre-texte_7954-37579.jpg",
+        title: "logo",
+        role: "description",
+        date: "2020 - 2022",
+        url: "https://products.aspose.app/words/fr/viewer/svg"
+    },
+ 
+ 
+]
+

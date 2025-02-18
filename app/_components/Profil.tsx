@@ -24,9 +24,9 @@ export const Profil = () => {
 
 Passionné par le développement et la conception de solutions digitales, j’allie théorie et pratique en alternance chez Immobilière 3F</p>
             </div>
-            <div className="flex-[2] max-md:m-auto ml-auto ">
+            <div className="flex justify-end flex-[2] max-md:m-auto">
                 <img src="https://media.licdn.com/dms/image/v2/D4E03AQHCxCUw8WNzYg/profile-displayphoto-shrink_400_400/B4EZTa3OrvGgAg-/0/1738838699246?e=1744243200&v=beta&t=Sx1dvtUV-OV1NWOTlBlxoQkHjarMJZIHGYlZMjV4JUA"
-               className="w-full h-full object-cover rounded-full max-md:w-56"
+               className="w-56 h-56 object-cover rounded-full max-md:w-36 max-md:h-36"
                  alt="photo martin" />
             </div>
         
